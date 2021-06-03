@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      //var resignable
+      let l = 1;
+      l = 2;
+      console.log(l);
+
+      //not reassignable
+      // const m = 1;
+      // m = 2; //TypeError: Assignment to constant variable.
+      // console.log(m);
+
+      // const c; //missing initializer in const declaration
+      // c = 1;
+      // console.log(c);
+
+      // can add values to the array given its an object
+      const c = [1, 2];
+      c.push(3); // works
+      // c = [1, 2, 3, 4]; // will not work, trying to reassign a value to const
+      console.log(c);
+    </script>
+  </body>
+</html>
