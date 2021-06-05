@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      //undefined is auto assigned, even though you can assign it, rather use null
+      let v;
+      console.log(v); //undefined
+      console.log(typeof v); //undefined
+
+      v = null;
+      console.log(v); //null
+
+      console.log(typeof v); //object
+
+      //note: typeof(undefined) => undefined, typeof(null) => object
+    </script>
+  </body>
+</html>
