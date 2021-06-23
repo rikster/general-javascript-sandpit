@@ -6,16 +6,32 @@
     // insert <div>Hello world</div>
     const rootEl = document.getElementById('root');
 
-    function createElement(type, attributes, content) {
+    function createElement(type, attributes, ...children) {
       const newEl = document.createElement(type);
       Object.entries(attributes).forEach(([key, value]) => {
         newEl.setAttribute(key, value);
       });
-      newEl.textContent = content;
+
+      children.forEach(child => {
+        if (typeof child === 'string') {
+          newEl.appendChild(document.createTextNode(child));
+        } else {
+          newEl.appendChild(child);
+        }
+      });
+
       return newEl;
     }
 
-    const newEl = createElement('h1', { id: 'header' }, 'Hey There');
+    const spanEl0 = createElement('span', {}, ' span 1');
+    const spanEl1 = createElement('span', {}, ' span 2');
+    const newEl = createElement(
+      'h1',
+      { id: 'header' },
+      'Hey There',
+      spanEl0,
+      spanEl1
+    );
     rootEl.appendChild(newEl);
   </script>
 </html>
