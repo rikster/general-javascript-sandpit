@@ -6,13 +6,14 @@
     // insert <div>Hello world</div>
     const rootEl = document.getElementById('root');
 
-    function createElement(type, attributes, ...children) {
+    function createElement(type, props, ...children) {
       const newEl = document.createElement(type);
-      Object.entries(attributes).forEach(([key, value]) => {
+
+      Object.entries(props).forEach(([key, value]) => {
         newEl.setAttribute(key, value);
       });
 
-      children.forEach(child => {
+      (props.children || children).forEach(child => {
         if (typeof child === 'string') {
           newEl.appendChild(document.createTextNode(child));
         } else {
@@ -25,13 +26,10 @@
 
     const spanEl0 = createElement('span', {}, ' span 1');
     const spanEl1 = createElement('span', {}, ' span 2');
-    const newEl = createElement(
-      'h1',
-      { id: 'header' },
-      'Hey There',
-      spanEl0,
-      spanEl1
-    );
-    rootEl.appendChild(newEl);
+    const element = createElement('h1', {
+      id: 'header',
+      children: ['Hey There', spanEl0, spanEl1]
+    });
+    rootEl.appendChild(element);
   </script>
 </html>
