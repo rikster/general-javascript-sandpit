@@ -1,9 +1,12 @@
 <html>
   <body>
-    <div id="root">Hello World</div>
+    <div id="root"></div>
   </body>
   <script>
+    // insert <div>Hello world</div>
     const rootEl = document.getElementById('root');
-    rootEl.textContent = 'Goodbye World';
+    const newEl = document.createElement('div');
+    newEl.textContent = 'Hello World';
+    rootEl.appendChild(newEl);
   </script>
 </html>
