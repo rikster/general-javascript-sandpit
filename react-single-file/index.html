@@ -5,8 +5,17 @@
   <script>
     // insert <div>Hello world</div>
     const rootEl = document.getElementById('root');
-    const newEl = document.createElement('div');
-    newEl.textContent = 'Hello World';
+
+    function createElement(type, attributes, content) {
+      const newEl = document.createElement(type);
+      Object.entries(attributes).forEach(([key, value]) => {
+        newEl.setAttribute(key, value);
+      });
+      newEl.textContent = content;
+      return newEl;
+    }
+
+    const newEl = createElement('h1', { id: 'header' }, 'Hey There');
     rootEl.appendChild(newEl);
   </script>
 </html>
